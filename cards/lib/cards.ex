@@ -66,6 +66,15 @@ defmodule Cards do
     end
   end
 
+  @doc """
+    Draws a number of cards from a deck to create a hand of cards
+
+  ## Examples
+
+      iex> {hand, deck} = Cards.create_hand(6)
+      iex> length(hand)
+      iex> 6
+  """
   def create_hand(hand_size) do
     Cards.create_deck
     |> Cards.shuffle
