@@ -5,7 +5,6 @@ mix new file_name
 # Elixir is better, modern Erlang. Fast and easy to write
 # Elixir features Pattern Matching which is a technique where you test an expression to determine if it has certain characteristics
 # Elixir features Piping
-# Elixir features automatic documentation generation with @moduledoc and @doc expressions in the elixir file
 
 # To open the Elixir shell, go into the project and type
 iex -S mix
@@ -20,3 +19,12 @@ iex> recompile force: true
 
 # arity = number of arguments
 # functions can have the same name as long as there are different number of arguements (function overloading)
+
+# Elixir features automatic documentation generation with @moduledoc and @doc expressions in the elixir file
+# the hashtag or pound symbol is used for inline documentation
+
+# test cases are stored in the test folder and can be ran with
+mix test
+
+# assert keyword used to confirm whether the value is true
+# refute keyword used to confirm whether the value is false
