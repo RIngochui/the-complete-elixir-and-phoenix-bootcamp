@@ -1,8 +1,26 @@
+# Elixir is a functional programming language, not an OOP language
+# Elixir is better, modern Erlang. Fast and easy to write
+
+# To update dependencies
+mix deps.get
+
 # generate an elixir project with
 mix new file_name
 
-# Elixir is a functional programming language, not an OOP language
-# Elixir is better, modern Erlang. Fast and easy to write
+# mix.lock is the file where the depencies versions are listed
+
+# To open the Elixir shell, go into the project and type
+iex -S mix
+
+# To close the Elixir shell type
+Ctrl + c, a
+
+# To compile the changes made in the Elixir shell
+iex> recompile
+or
+iex> recompile force: true
+open
+
 # Elixir features Pattern Matching which is a technique where you test an expression to determine if it has certain characteristics. Used to assign variables.
 
 # To grab the first element with pattern matching
@@ -10,6 +28,14 @@ iex> [first_element|_] = [1, 2, 3]
 [1, 2, 3]
 iex> first_element
 1
+
+# To grab the first two elements with pattern matching
+iex> [a, b|_] = [1, 2, 3]
+[1, 2, 3]
+iex> a
+1
+iex> b
+2
 
 # Two types of data structs in Elixir are Maps and Keyword Lists
 # maps are collection of key value pairs (hashes in Ruby and objects in JS)
@@ -59,17 +85,10 @@ iex> colors = %{primary: "red", secondary: "blue"}
 iex> Map.put(colors, :tertiary, "green")
 %{primary: "red", secondary: "blue", tertiary: "green"}
 
-# To open the Elixir shell, go into the project and type
-iex -S mix
+# lists are like arrays and used for any arbitrary length
+# tuples are like arrays but every index is special
+# the other data struct is Keyword Lists which combines lists and tuples
 
-# To close the Elixir shell type
-Ctrl + c, a
-
-# To compile the changes made in the Elixir shell
-iex> recompile
-or
-iex> recompile force: true
-open
 # arity = number of arguments
 # functions can have the same name as long as there are different number of arguements (function overloading)
 
@@ -96,3 +115,4 @@ doctest module_name
 mix docs
 
 # the html files will be located in doc directory
+open doc/index.html

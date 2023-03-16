@@ -74,6 +74,7 @@ defmodule Cards do
       iex> {hand, deck} = Cards.create_hand(6)
       iex> length(hand)
       iex> 6
+
   """
   def create_hand(hand_size) do
     Cards.create_deck
