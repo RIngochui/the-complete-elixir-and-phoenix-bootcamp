@@ -4,7 +4,6 @@ mix new file_name
 # Elixir is a functional programming language, does not work with OOP
 # Elixir is better, modern Erlang. Fast and easy to write
 # Elixir features Pattern Matching which is a technique where you test an expression to determine if it has certain characteristics
-# Elixir features Piping
 
 # To open the Elixir shell, go into the project and type
 iex -S mix
@@ -16,9 +15,12 @@ Ctrl + c, a
 iex> recompile
 or
 iex> recompile force: true
-
+open
 # arity = number of arguments
 # functions can have the same name as long as there are different number of arguements (function overloading)
+
+# Elixir features Piping
+# The pipe operator |> passes the result of an expression as the first parameter of another expression.
 
 # Elixir features automatic documentation generation with @moduledoc and @doc expressions in the elixir file
 # the hashtag or pound symbol is used for inline documentation
@@ -28,3 +30,10 @@ mix test
 
 # assert keyword used to confirm whether the value is true
 # refute keyword used to confirm whether the value is false
+
+# doctests are extra swag, they are tests within the module. You can find them in the doc comments under examples. The sample code will run in the test run.
+
+# Elixir can help create docs in html form with
+mix docs
+
+# the html files will be located in doc directory

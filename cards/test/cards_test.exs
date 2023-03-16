@@ -25,6 +25,4 @@ defmodule CardsTest do
     deck = Cards.create_deck
     refute Cards.contains?(deck, "Thirteen of Squares")
   end
-
-
 end
