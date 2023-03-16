@@ -3,13 +3,61 @@ mix new file_name
 
 # Elixir is a functional programming language, not an OOP language
 # Elixir is better, modern Erlang. Fast and easy to write
-# Elixir features Pattern Matching which is a technique where you test an expression to determine if it has certain characteristics
+# Elixir features Pattern Matching which is a technique where you test an expression to determine if it has certain characteristics. Used to assign variables.
 
 # To grab the first element with pattern matching
 iex> [first_element|_] = [1, 2, 3]
 [1, 2, 3]
 iex> first_element
 1
+
+# Two types of data structs in Elixir are Maps and Keyword Lists
+# maps are collection of key value pairs (hashes in Ruby and objects in JS)
+# Creating a map and using dot notation
+iex> colors = %{primary: "red"}
+%{primary: "red"}
+iex> colors.primary
+"red"
+
+# maps can have multiple key value pairs
+iex> colors = %{primary: "red", secondary: "blue"}
+%{primary: "red", secondary: "blue"}
+
+# maps can pattern match in an interesting way as well instead of dot notation
+iex> colors = %{primary: "red", secondary: "blue"}
+%{primary: "red", secondary: "blue"}
+iex> %{secondary: secondary_color} = colors
+%{primary: "red", secondary: "blue"}
+iex> secondary_color
+"blue"
+
+# updating values in maps are difficult because data structs are immutable. We have to create a new data struct using the old one with the changes
+
+# using a Map function. Note that colors is still the original colors, the Map function creates a new Map data struct
+iex> colors = %{primary: "red", secondary: "blue"}
+%{primary: "red", secondary: "blue"} 
+iex> Map.put(colors, :primary, "green")
+%{primary: "green", secondary: "blue"}
+
+# not using a Map function. Again it does not update colors but creates a new data struct with the changes to colors
+iex> colors = %{primary: "red", secondary: "blue"}
+%{primary: "red", secondary: "blue"} 
+iex> %{colors | primary: "green"}
+%{primary: "green", secondary: "blue"}
+iex> colors
+%{primary: "red", secondary: "blue"}
+
+# we cannot add an element to a Map without Map functions. This will not work:
+iex> colors = %{primary: "red", secondary: "blue"}
+%{primary: "red", secondary: "blue"} 
+iex> %{colors | tertiary: "green"}
+error message
+
+# to add an element we need a map function:
+iex> colors = %{primary: "red", secondary: "blue"}
+%{primary: "red", secondary: "blue"} 
+iex> Map.put(colors, :tertiary, "green")
+%{primary: "red", secondary: "blue", tertiary: "green"}
 
 # To open the Elixir shell, go into the project and type
 iex -S mix
