@@ -25,4 +25,17 @@ defmodule CardsTest do
     deck = Cards.create_deck
     refute Cards.contains?(deck, "Thirteen of Squares")
   end
+
+  test "hand contains the correct number of cards" do
+    {hand, deck} = Cards.create_hand(13)
+    assert length(hand) == 13
+  end
+
+  test "dealing a card from a hand returns the first card in hand" do
+    {hand, deck} = Cards.create_hand(13)
+    [first_card|_] = hand
+    {[card], hand} = Cards.deal(hand, 1)
+    assert card == first_card
+  end
+
 end
