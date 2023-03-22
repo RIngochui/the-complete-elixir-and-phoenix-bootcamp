@@ -21,6 +21,22 @@ or
 iex> recompile force: true
 open
 
+# arity = number of arguments
+# functions can have the same name as long as there are different number of arguements (function overloading)
+
+# Elixir features Piping
+# The pipe operator |> passes the result of an expression as the first parameter of another expression.
+
+# using if statements in Elixir is bad practice. Use switch statements instead
+
+# In Elixir there exists a data type called atoms are constants whose values are their own name
+iex> :apple
+:apple
+iex> :orange
+:orange
+iex> :watermelon
+:watermelon
+
 # Elixir features Pattern Matching which is a technique where you test an expression to determine if it has certain characteristics. Used to assign variables.
 
 # To grab the first element with pattern matching
@@ -87,15 +103,40 @@ iex> Map.put(colors, :tertiary, "green")
 
 # lists are like arrays and used for any arbitrary length
 # tuples are like arrays but every index is special
+
 # the other data struct is Keyword Lists which combines lists and tuples
+iex> colors = [{:primary, "red"}, {:secondary, "green"}]
+[primary: "red", secondary: "green"]
 
-# arity = number of arguments
-# functions can have the same name as long as there are different number of arguements (function overloading)
+# note when we run a Keyword List we get back key value pairs similar to a map
+# to access this list we can use the atom as the index
+iex> colors[:primary]
+"red"
 
-# Elixir features Piping
-# The pipe operator |> passes the result of an expression as the first parameter of another expression.
+# it looks like a keyvalue pair but elixir thinks of it as a tuple, it goes through the list and finds the value from the key
+# Keyword Lists also allows for the following syntax which closely resembles a list
+iex> colors = [primary: "red", secondary: "green"]
+[primary: "red", secondary: "green"]
 
-# using if statements in Elixir is bad practice. Use switch statements instead
+# So when should one use Keyword Lists or Maps?
+# with maps there is only one property per map, in the example below assigning two elements to the same variable. The second assignment overwrites the first
+iex> colors = %{primary: "red", primary: "blue"}
+primary: "blue"
+
+# with Keyword List, you can make the as many assignments as one wants and it will not get rid of either assignments
+iex> colors = [primary: "red", primary: "blue"]
+[primary: "red", primary: "blue"]
+
+# an example of why this is useful it because of databases, you can form a database query using keyword lists
+# below is an example of it being used in a database that stores users
+iex> query = User.find_where([where: user.age > 10, where user.subscribed == true])
+
+# if you passing a keyword list to a function and keyword list is the last argument you can remove the square braces
+# it looks like we are providing two different arguements but elixir can read it as a single argument
+iex> query = User.find_where(where: user.age > 10, where user.subscribed == true)
+
+# you can remove the parens as well
+iex> query = User.find_where where: user.age > 10, where user.subscribed == true
 
 # Elixir features automatic documentation generation with @moduledoc and @doc expressions in the elixir file
 # the hashtag or pound symbol is used for inline documentation
