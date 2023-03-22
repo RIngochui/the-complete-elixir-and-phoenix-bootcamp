@@ -2,7 +2,7 @@ defmodule IdenticonTest do
   use ExUnit.Case
   doctest Identicon
 
-  test "the truth" do
-    assert 1 + 1 == 2
+  test "greets the world" do
+    assert Identicon.hello() == :world
   end
 end
