@@ -138,6 +138,33 @@ iex> query = User.find_where(where: user.age > 10, where user.subscribed == true
 # you can remove the parens as well
 iex> query = User.find_where where: user.age > 10, where user.subscribed == true
 
+# hashing an input, converting a string to a unique sequence for chars
+# md5 is the algorithm to has an input and it producess a 128-bit hash value
+# an example of hashing in the mix shell is the following:
+iex> hash = :crypto.hash(:md5, "banana")
+<<114, 179, 2, 191, 41, 122, 34, 138, 117, 115, 1, 35, 239, 239, 124, 65>>
+iex> Base.encode16(hash)
+"72B302BF297A228A75730123EFEF7C41"
+iex> :binary.bin_to_list(hash)
+[114, 179, 2, 191, 41, 122, 34, 138, 117, 115, 1, 35, 239, 239, 124, 65]
+
+# Elixir uses structs, a datastructure used for modeling data (duh)
+# its a map that can be assigned default values and have addition compile time checking for properties
+# to work with structs in elixir we would need to make a new module. In the project's lib folder, we need to make a new module and in the new module we use the keyword defstruct which values set to null
+defmodule Module_Name.Struct_Name do
+    defstruct variableA: nil, variableB: nil
+end
+
+# to create a struct in the shell
+iex> %Module_Name.Struct_Name{}
+%Module_Name.Struct_Name{variableA: nil, variableB: nil}
+
+# can create with a starting property
+iex> %Module_Name.Struct_Name{variableA: []}
+%Module_Name.Struct_Name{variableA: [], variableB: nil}
+
+# we can pattern matching structs too
+
 # Elixir features automatic documentation generation with @moduledoc and @doc expressions in the elixir file
 # the hashtag or pound symbol is used for inline documentation
 
@@ -157,3 +184,4 @@ mix docs
 
 # the html files will be located in doc directory
 open doc/index.html
+
