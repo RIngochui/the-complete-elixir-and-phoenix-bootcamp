@@ -39,19 +39,23 @@ iex> :watermelon
 
 # Elixir features Pattern Matching which is a technique where you test an expression to determine if it has certain characteristics. Used to assign variables.
 
+# there is no getting from a list with index like with JS or with Python
+
 # To grab the first element with pattern matching
-iex> [first_element|_] = [1, 2, 3]
+iex> [first_element | _tail] = [1, 2, 3]
 [1, 2, 3]
 iex> first_element
 1
 
 # To grab the first two elements with pattern matching
-iex> [a, b|_] = [1, 2, 3]
-[1, 2, 3]
+iex> [a, b | _tail] = [1, 2, 3, 4, 5, 6, 7]
+[1, 2, 3, 4, 5, 6, 7]
 iex> a
 1
 iex> b
 2
+iex> _tail
+[3, 4, 5, 6, 7]
 
 # Two types of data structs in Elixir are Maps and Keyword Lists
 # maps are collection of key value pairs (hashes in Ruby and objects in JS)
@@ -163,7 +167,19 @@ iex> %Module_Name.Struct_Name{}
 iex> %Module_Name.Struct_Name{variableA: []}
 %Module_Name.Struct_Name{variableA: [], variableB: nil}
 
+# note we cannot add on property that are not defined in the struct
+iex> %Module_Name.Struct_Name{variableC: []}
+error
+
 # we can pattern matching structs too
+iex> %Module_Name.Struct_Name{variableA: [a, b, c | _tail]} = %Module_Name.Struct_Name{variableA: [145, 46, 200, 3, 178, 206, 73, 228, 165, 65, 6, 141, 73, 90, 181, 112]}
+%Identicon.Image{variableA: [145, 46, 200, 3, 178, 206, 73, 228, 165, 65, 6, 141, 73, 90, 181, 112], variableB: nil}
+iex> a
+145
+iex> b
+46
+iex> c
+200
 
 # Elixir features automatic documentation generation with @moduledoc and @doc expressions in the elixir file
 # the hashtag or pound symbol is used for inline documentation
