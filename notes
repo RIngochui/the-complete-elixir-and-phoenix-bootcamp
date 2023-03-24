@@ -181,6 +181,34 @@ iex> b
 iex> c
 200
 
+# we can also pattern match values directly out of the argument list
+defmodule Module_Name do
+   def function(%Module_Name.Struct_Name{variableA: [a, b, c | _tail]}) do
+      [a, b, c]
+   end
+end
+
+iex> Module_Name.function(%Identicon.Image{variableA: [145, 46, 200, 3, 178, 206, 73, 228, 165, 65, 6, 141, 73, 90, 181, 112], variableB: nil})
+[145, 46, 200]
+
+# if we want to append to a list, we would use ++
+iex> row = [1, 2, 3, 4] 
+[1, 2, 3, 4]
+iex> row ++ [3, 2, 1]        
+[1, 2, 3, 4, 3, 2, 1]
+
+# to pass a reference to a function in elixir we use different syntax
+# & symbolized that it is referencing a function and the / represents the arity in case there are functions of the same name but with different number of arguments
+# the following code will reference the function called "function" specifically the one with 1 argument
+&function/1
+
+# we can have functions in arguments when it calls for it. we would need to use the syntax fn and end
+iex> row = [145, 46, 200, 3, 178, 206, 73, 228, 165, 65, 6, 141, 73, 90, 181, 112]
+[145, 46, 200, 3, 178, 206, 73, 228, 165, 65, 6, 141, 73, 90, 181, 112]
+iex> Enum.filter(row, fn x -> rem(x, 2) == 0 end)
+[46, 200, 178, 206, 228, 6, 90, 112]
+
+
 # Elixir features automatic documentation generation with @moduledoc and @doc expressions in the elixir file
 # the hashtag or pound symbol is used for inline documentation
 
