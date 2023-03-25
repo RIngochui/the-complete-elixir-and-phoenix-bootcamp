@@ -208,6 +208,14 @@ iex> row = [145, 46, 200, 3, 178, 206, 73, 228, 165, 65, 6, 141, 73, 90, 181, 11
 iex> Enum.filter(row, fn x -> rem(x, 2) == 0 end)
 [46, 200, 178, 206, 228, 6, 90, 112]
 
+# Since Elixir is based off of Erlang, we can use Erlang methods such as .create() and .filledRectangle()
+# be careful with Erlang methods, they modify variables which is unlike what we were taught in Elixir where variables were immutable
+:edg.create() -> new image
+:edg.filledRectangle() -> ok
+
+# If you have used JavaScript you know that you can perform string interpolation with `${}`, in elixir the equivilent is "#{}". Here is an example with Javascript code and it's Elixir equivilent
+File.write(`${filename}.png`, image)
+File.write("#{filename}.png", image)
 
 # Elixir features automatic documentation generation with @moduledoc and @doc expressions in the elixir file
 # the hashtag or pound symbol is used for inline documentation
