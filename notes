@@ -201,3 +201,15 @@ mix docs
 # the html files will be located in doc directory
 open doc/index.html
 
+# Phoenix is the web framework that elixir uses to build applications
+# make sure that nodejs is installed (version > 5), Pheonix needs the toolings to interact with JS clients
+# Phoenix' job is to be a web server, users can recieve back html, json, or web sockets
+# Phoenix can hold static data (videos, images, etc.)
+# We can use almost all types of database with Phoenix, database will hold all data related to the application (list of users, list of blogposts, etc.)
+# Everything inside of Phoenix is to recieve requests from clients and pulls the data from the database and responds as html, json or a web socket
+
+# How does Phoenix handle these requests?
+# 
+
+# We will be using PostgreSQL as the database. Setting up Postgre on Mac is a pain
+# ChatGPT helped a lot with the PostgreSQL installation on MacOS
