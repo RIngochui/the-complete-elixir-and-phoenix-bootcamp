@@ -209,7 +209,28 @@ open doc/index.html
 # Everything inside of Phoenix is to recieve requests from clients and pulls the data from the database and responds as html, json or a web socket
 
 # How does Phoenix handle these requests?
-# 
+# 1. Incoming Request
+# 2. Validate Request (Is it an HTML request?)
+# 3. See if it has a session
+# 4. Do a security check (Is this user authenticated)
+# 5. Add required data to payload (Put on HTTP headers for a browser)
+# 6. See what the request was trying to access
+# 7. Formulate and return a request
+
+# To generate a new phoenix project
+mix phoenix.new project_name
+
+# once the project is generated a folder for the project will be made
+cd project_name
+
+# make sure to get the dependancies for the project
+mix deps.get
+
+# to run the pheonix server run
+mix phoenix.server
+
+#
+mix ecto.create
 
 # We will be using PostgreSQL as the database. Setting up Postgre on Mac is a pain
 # ChatGPT helped a lot with the PostgreSQL installation on MacOS
