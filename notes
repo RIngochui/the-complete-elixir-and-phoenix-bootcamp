@@ -262,11 +262,15 @@ cd project_name
 # make sure to get the dependancies for the project
 mix deps.get
 
-# to run the pheonix server run
-mix phoenix.server
+# to compile
+mix deps.compile
 
-#
+# to generate the ecto app
 mix ecto.create
+
+# to run the pheonix server run
+mix phoenix.server or mix phx.server
+
 
 # We will be using PostgreSQL as the database. Setting up Postgre on Mac is a pain
 # ChatGPT helped a lot with the PostgreSQL installation on MacOS
