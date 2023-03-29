@@ -37,9 +37,11 @@ defmodule Discuss.Mixfile do
      {:phoenix_html, "~> 2.13"},
      {:phoenix_live_reload, "~> 1.0", only: :dev},
      {:gettext, "~> 0.11"},
-     {:cowboy, "~> 1.0"},
+     {:plug_cowboy, "~> 2.0"},
      {:ueberauth, "~> 0.3"},
-     {:ueberauth_github, "~> 0.4"}]
+     {:ueberauth_github, "~> 0.4"},
+     {:poison, ">=0.0.0"},
+     {:jason, "~> 1.0"}]
   end
 
   # Aliases are shortcuts or tasks specific to the current project.
